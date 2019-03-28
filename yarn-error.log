@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Bhadri\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add enzyme-to-json@3.0.1
+  C:\Program Files\nodejs\node.exe C:\Users\Bhadri\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add extract-text-webpack-plugin
 
 PATH: 
   C:\Users\Bhadri\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Bhadri\bin;C:\Program Files\Microsoft MPI\Bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\QuickTime\QTSystem;C:\Program Files (x86)\Common Files\Apple\Internet Services;C:\Program Files\Aladdin\eToken\PKIClient\x32;C:\Program Files\Aladdin\eToken\PKIClient\x64;C:\WINDOWS\System32\OpenSSH;C:\Users\Bhadri\AppData\Local\Microsoft\WindowsApps;C:\Users\Bhadri\AppData\Local\Programs\Microsoft VS Code\bin;C:\adb;C:\cygwin64\bin;C:\MinGW\bin;C:\Program Files\nodejs;C:\Users\Bhadri\AppData\Local\Programs\Python\Python37;C:\Program Files\dotnet;C:\Program Files\Microsoft SQL Server\130\Tools\Binn;C:\Program Files (x86)\Brackets\command;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Users\Bhadri\AppData\Local\Microsoft\WindowsApps;C:\Users\Bhadri\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Bhadri\AppData\Roaming\npm;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
@@ -25,7 +25,8 @@ npm manifest:
     "license": "MIT",
     "scripts": {
       "server": "live-server public/",
-      "build": "webpack",
+      "build:dev": "webpack",
+      "build:prod": "webpack -p --env production",
       "dev-server": "webpack-dev-server",
       "test": "jest --config=jest.config.json"
     },
@@ -40,6 +41,7 @@ npm manifest:
       "css-loader": "0.28.4",
       "enzyme": "3.0.0",
       "enzyme-adapter-react-16": "1.0.0",
+      "enzyme-to-json": "^3.3.5",
       "jest": "20.0.4",
       "live-server": "^1.2.1",
       "moment": "2.18.1",
@@ -2760,6 +2762,13 @@ Lockfile:
       object.fromentries "^2.0.0"
       prop-types "^15.7.2"
       semver "^5.6.0"
+  
+  enzyme-to-json@^3.3.5:
+    version "3.3.5"
+    resolved "https://registry.yarnpkg.com/enzyme-to-json/-/enzyme-to-json-3.3.5.tgz#f8eb82bd3d5941c9d8bc6fd9140030777d17d0af"
+    integrity sha512-DmH1wJ68HyPqKSYXdQqB33ZotwfUhwQZW3IGXaNXgR69Iodaoj8TF/D9RjLdz4pEhGq2Tx2zwNUIjBuqoZeTgA==
+    dependencies:
+      lodash "^4.17.4"
   
   enzyme@3.0.0:
     version "3.0.0"
