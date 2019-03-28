@@ -3,7 +3,6 @@ const path=require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports=(env)=>{
-    const ExtractTextPlugin = require('extract-text-webpack-plugin');
     const isProduction=env==='production';
     const CSSExtract = new ExtractTextPlugin('styles.css');
 
