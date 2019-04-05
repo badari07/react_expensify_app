@@ -1,4 +1,4 @@
-import {createStore,combineReducers,applyMiddleware} from 'redux';
+import {createStore,combineReducers,applyMiddleware,compose} from 'redux';
 import filtersReducers from '../redusers/filters';
 import expenseReducers from '../redusers/expenses';
 import thunk from 'redux-thunk';  
@@ -13,7 +13,7 @@ export default ()=>{
     }),
         composeEnhancers(applyMiddleware(thunk))
     );
-    return store
+    return store;
 
 };
 

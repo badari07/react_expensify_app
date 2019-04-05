@@ -1,5 +1,6 @@
 import uuid from 'uuid';
-import dataBase from '../firebase/firebase';
+import database from '../firebase/firebase';
+import { dispatch } from '../../../../../../AppData/Local/Microsoft/TypeScript/3.4/node_modules/rxjs/internal/observable/pairs';
 
 
 const addExpense=(expense)=>({
@@ -12,7 +13,7 @@ const startAddExpense=(expenseData={})=>{
         const {description='',note='',amount=0,createdAt=0}=expenseData;
         const expense={description,note,amount,createdAt};
 
-       return dataBase.ref('expenses').push(expense).then((ref)=>{
+       return database.ref('expenses').push(expense).then((ref)=>{
             dispatch(addExpense({
                 id: ref.key,
                 ...expense
@@ -34,5 +35,25 @@ const editExpense=(id,updates)=>({
     id,
     updates
 })
+
+export const setExpenses=(expenses)=>({
+    type:'set_Expenses',
+    expenses
+})
+
+export const startSetExpenses=()=>{
+    return (dispatch)=>{
+      return  database.ref('expenses').once('value').then((snapshot)=>{
+        const expenses=[];
+        snapshot.forEach((childsnapshot)=>{
+            expenses.push({
+                id:childsnapshot.key,
+                ...childsnapshot.val()
+            })
+        })
+        dispatch(setExpenses(expenses))
+        })
+    }
+};  
 
 export {addExpense,removeExpense,editExpense,startAddExpense} 

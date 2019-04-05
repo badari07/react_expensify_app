@@ -12,9 +12,10 @@ const  config = {
 
 
 firebase.initializeApp(config);
-const dataBase = firebase.database();
 
-export {firebase, dataBase as default};
+const database = firebase.database();
+
+export {firebase, database as default};
 
 // dataBase.ref('expenses').on('value',(snapShot)=>{
 //     const expenses=[];
