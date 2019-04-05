@@ -1,6 +1,5 @@
 import uuid from 'uuid';
 import database from '../firebase/firebase';
-import { dispatch } from '../../../../../../AppData/Local/Microsoft/TypeScript/3.4/node_modules/rxjs/internal/observable/pairs';
 
 
 const addExpense=(expense)=>({
@@ -42,7 +41,7 @@ export const setExpenses=(expenses)=>({
 })
 
 export const startSetExpenses=()=>{
-    return (dispatch)=>{
+    return (dispatch) => {
       return  database.ref('expenses').once('value').then((snapshot)=>{
         const expenses=[];
         snapshot.forEach((childsnapshot)=>{
