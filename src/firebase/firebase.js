@@ -1,6 +1,7 @@
 import * as firebase from 'firebase';
 
 
+
 const  config = {
     apiKey: process.env.FIREBASE_API_KEY,
     authDomain: process.env.FIREBASE_AUTH_DOMAIN,
@@ -14,8 +15,26 @@ const  config = {
 firebase.initializeApp(config);
 
 const database = firebase.database();
+const provider = new firebase.auth.GoogleAuthProvider();
 
-export {firebase, database as default};
+
+
+// firebase.auth().getRedirectResult().then(function (result) {
+//     if (result.credential) {
+//         // This gives you a Google Access Token.
+//         var token = result.credential.accessToken;
+//     }
+//     var user = result.user;
+// });
+
+// Start a sign in process for an unauthenticated user.
+// var provider = new firebase.auth.GoogleAuthProvider();
+// provider.addScope('profile');
+// provider.addScope('email');
+
+export {firebase,provider, database as default};
+
+
 
 // dataBase.ref('expenses').on('value',(snapShot)=>{
 //     const expenses=[];
