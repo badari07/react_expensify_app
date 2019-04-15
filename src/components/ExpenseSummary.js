@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import numeral from 'numeral';
 import selectExpenses from '../selectors/expenses';
 import selectExpensesTotal from '../selectors/expense-total';
+import {Link} from 'react-router-dom';
 
 
 export const ExpenseSummary=({expenseCount,expensesTotal})=>{
@@ -10,8 +11,15 @@ export const ExpenseSummary=({expenseCount,expensesTotal})=>{
     const formattedExpensesTotal = numeral(expensesTotal / 100).format('$0,0.00');
 
     return (
-        <div>
-            <h1> viewing {expenseCount} {expenseWord} expenses totaling {formattedExpensesTotal} </h1>
+        <div className='page-header'>
+            <div className='content-container'>
+            <h1 className = 'page-header__title'> viewing <span> {
+                expenseCount
+            } </span> {expenseWord} expenses totaling  <span>{formattedExpensesTotal}</span> </h1>
+            <div className='page-header__actions'>
+                <Link className='button' to='/create'>Add Expense</Link>
+            </div>
+            </div>
         </div>
     )
 };
